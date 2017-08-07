@@ -1,31 +1,67 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="todo">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--11-col">
+        <h1>{{msg}}</h1>
+      </div>
+    </div>
+    
+    <hr />
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--1-col">
+        
+      </div>
+      <div class="mdl-cell mdl-cell--10-col">
+        <ul class="list-item mdl-list" v-for="item in todoList">
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+            {{item.item}}
+          </span>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    <hr />
+    <form action="#" class="mdl-grid">
+      <div class="mdl-cell mdl-cell--1-col">
+        
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+        <input class="mdl-textfield__input" type="text" id="input" v-model="inputVal">
+        <label class="mdl-textfield__label" for="input">Todo</label>
+      </div>
+    </form>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--1-col">
+        
+      </div>
+      <div class="mdl-cell mdl-cell--1-col">
+        <button v-on:click="addItem" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Add user
+        </button>
+      </div>
+      
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'todo',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      todoList: [
+        {item: 'Buy groceries'}
+      ],
+      inputVal: ''
+    }
+  },
+  methods: {
+    addItem: function () {
+      this.todoList.push({item: this.inputVal})
+      // alert('Add user called')
     }
   }
 }
@@ -33,19 +69,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+  @import url('https://code.getmdl.io/1.3.0/material.blue-red.min.css');
 h1, h2 {
   font-weight: normal;
 }
-
+.list-item {
+  width: 300px;
+}
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-position: inside;
+  align-items: left;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 
 a {
   color: #42b983;
