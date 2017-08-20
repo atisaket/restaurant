@@ -25,7 +25,7 @@
       </nav>
     </div>
     <!--<div aria-expanded="true" role="button" tabindex="0" class="mdl-layout__drawer-button">
-      <i class="material-icons"></i> adding to see if git works
+      <i class="material-icons"></i> adding to see if git works. trying to get CI to work.
       </div>-->
     <main class="mdl-layout__content" style="background-color: transparent">
       <div class="page-content">
